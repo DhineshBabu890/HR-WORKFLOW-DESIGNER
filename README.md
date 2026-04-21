@@ -1,73 +1,134 @@
-# React + TypeScript + Vite
+# 🧠 HR Workflow Designer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual, drag-and-drop workflow builder for designing and simulating HR processes such as onboarding, approvals, and automated actions.
 
-Currently, two official plugins are available:
+This project demonstrates building a modular, scalable frontend system using graph-based UI with **React Flow**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎯 Visual Workflow Builder
 
-## Expanding the ESLint configuration
+* Drag and drop nodes onto the canvas
+* Automatic vertical alignment for structured workflows
+* Auto-connect nodes to maintain logical flow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔗 Smart Connections
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Smooth, animated edges
+* Handle-based connections (top → bottom)
+* Prevents invalid flow (e.g., no connections after End node)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🧩 Node Types
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* 🟢 **Start Node** – Entry point
+* 📋 **Task Node** – Human task (with assignee support)
+* ✅ **Approval Node** – Role-based approval
+* ⚙️ **Automated Node** – System-triggered actions
+* 🔴 **End Node** – Workflow completion
+
+### ✏️ Dynamic Node Configuration
+
+* Click a node to edit its properties
+* Form adapts based on node type
+* Controlled state updates
+
+### 🧪 Workflow Simulation
+
+* Simulate workflow execution step-by-step
+* Displays execution order
+* Validates workflow structure
+
+---
+
+## 🛠 Tech Stack
+
+| Category       | Technology   |
+| -------------- | ------------ |
+| Frontend       | React (Vite) |
+| Graph Engine   | React Flow   |
+| State Handling | React Hooks  |
+| Styling        | CSS / Inline |
+
+---
+
+## 📂 Project Structure
+
+```id="2fz22l"
+src/
+ ├── components/
+ │    ├── nodes/         # Custom node UI components
+ │    ├── panels/        # Node editor + simulation panel
+ │    ├── sidebar/       # Drag source (node list)
+ │
+ ├── services/           # Mock API (simulation logic)
+ ├── utils/              # Validation logic
+ ├── App.jsx             # Core workflow engine
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ How to Run
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash id="v2qbyu"
+npm install
+npm run dev
 ```
+
+Then open:
+👉 http://localhost:5173
+
+---
+
+## 🧠 Key Design Decisions
+
+* **Auto-connect logic**
+  Simplifies workflow creation and enforces structure
+
+* **Vertical alignment strategy**
+  Ensures readability and mimics real workflow tools
+
+* **Custom node components**
+  Each node type is modular and reusable
+
+* **Separation of concerns**
+  UI, logic, and validation are cleanly separated
+
+---
+
+## ⚠️ Validation Rules
+
+* Must include:
+
+  * At least one **Start node**
+  * At least one **End node**
+* Nodes must be connected for simulation
+
+---
+
+## 🔮 Future Improvements
+
+* Undo / Redo functionality
+* Export / Import workflow (JSON)
+* Smart auto-layout (graph positioning)
+* Visual error indicators
+* Backend integration for persistence
+
+---
+
+## 📸 Preview
+
+*Add a screenshot of your UI here for better impact*
+
+---
+
+## 💡 What This Project Demonstrates
+
+* Strong React fundamentals and component architecture
+* Practical usage of graph-based UI (React Flow)
+* Clean, modular, scalable design
+* UX thinking (auto-connect, alignment, validation)
+
+---
+
